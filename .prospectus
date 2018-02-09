@@ -1,0 +1,27 @@
+Prospectus.extra_dep('file', 'prospectus_pkgforge')
+Prospectus.extra_dep('file', 'prospectus_circleci')
+Prospectus.extra_dep('file', 'nokogiri')
+require 'open-uri'
+
+pkgforge = PkgForge.load_from_file
+my_slug = pkgforge.org + '/' + pkgforge.name
+
+item do
+  expected do
+    static
+    url = 'https://www.lysator.liu.se/~nisse/misc/'
+    page = Nokogiri::HTML(open(url).read)
+    regex = /^argp-standalone-([\d.]+)\.tar\.gz$/
+    xpath = '/html/body/table/tr/td[2]/a'
+    releases = page.xpath(xpath).map(&:text).map { |x| x.text.match(regex) }.compact
+    set releases.map { |x| x[1] }.sort.last
+  end
+
+  actual do
+    git_tag
+    regex /^(.*)-\d+$/
+  end
+
+  extend ProspectusPkgforge::DepItems
+  extend ProspectusCircleci::Build.new(my_slug)
+end
