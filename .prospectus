@@ -13,7 +13,7 @@ item do
     page = Nokogiri::HTML(open(url).read)
     regex = /^argp-standalone-([\d.]+)\.tar\.gz$/
     xpath = '/html/body/table/tr/td[2]/a'
-    releases = page.xpath(xpath).map(&:text).map { |x| x.text.match(regex) }.compact
+    releases = page.xpath(xpath).map { |x| x.text.match(regex) }.compact
     set releases.map { |x| x[1] }.sort.last
   end
 
