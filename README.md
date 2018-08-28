@@ -1,7 +1,7 @@
 libargp
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/libargp/master.svg)](https://circleci.com/gh/amylum/libargp)
+[![Build Status](https://img.shields.io/travis/com/amylum/libargp.svg)](https://travis-ci.com/amylum/libargp)
 [![GitHub release](https://img.shields.io/github/release/amylum/libargp.svg)](https://github.com/amylum/libargp/releases)
 [![GPLv2+ Licensed](https://img.shields.io/badge/license-GPLv2+-green.svg)](https://tldrlegal.com/license/gnu-general-public-license-v2)
 
