@@ -4,7 +4,7 @@ org 'amylum'
 source(
   type: 'tar',
   url: 'https://www.lysator.liu.se/~nisse/misc/argp-standalone-1.3.tar.gz',
-  checksum: 'dec79694da1319acd2238ce95df57f3680fea2482096e483323fddf3d818d8be'
+  checksum: '6982d2cf387b20eed8eee8aa0deac213b60f45a6a9005b1c9d1bfa770ed785f4'
 )
 
 configure_flags(
